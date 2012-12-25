@@ -53,13 +53,7 @@ if %?BASE%
 ## Don't perform translation, since script name is important.
 	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(%NDIR%dir)'"; \
 	  $(INSTALL_DATA) $$files "$(DESTDIR)$(%NDIR%dir)" || exit $$?; \
-	done || exit $$?; \
-## Byte-compile must be done at install time, since file times are
-## encoded in the actual files.
-	if test -n "$$dlist"; then \
-	  $(am__py_compile) --destdir "$(DESTDIR)" \
-	                    --basedir "$(%NDIR%dir)" $$dlist; \
-	else :; fi
+	done || exit $$?;
 else !%?BASE%
 	@list='$(%DIR%_PYTHON)'; test -n "$(%NDIR%dir)" || list=; \
 	if test -n "$$list"; then \
