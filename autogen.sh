@@ -6,7 +6,7 @@ test -n "${srcdir}" || srcdir="$(pwd)"
 olddir="$(pwd)"
 cd "$srcdir"
 
-./bootstrap
+./bootstrap.sh
 
 cd "$olddir"
 "$srcdir/configure" "$@"
